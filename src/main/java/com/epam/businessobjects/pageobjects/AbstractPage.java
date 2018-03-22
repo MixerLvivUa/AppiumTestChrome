@@ -58,6 +58,11 @@ abstract class AbstractPage {
         return elementFactory.create((Class<E>) element.getClass(), getWait().until(ExpectedConditions.elementToBeClickable(element.getWebElement())));
     }
 
+    <E extends AbstractElement> E waitUntilBeVisibile(E element) {
+        return elementFactory.create((Class<E>) element.getClass(), getWait().until(ExpectedConditions.visibilityOf(element.getWebElement())));
+    }
+
+
     private WebDriverWait getWait() {
         return (new WebDriverWait(driver, Preferences.preferencesTestGmail.getTimeOutInSeconds(), Preferences.preferencesTestGmail.getSleepInMillis()));
     }

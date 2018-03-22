@@ -17,6 +17,10 @@ public class InputField extends AbstractElement implements SendKeys, Click {
         return webElement.getAttribute("value");
     }
 
+    public String getText() {
+        return webElement.getText();
+    }
+
     @Override
     public void click() {
         webElement.click();
